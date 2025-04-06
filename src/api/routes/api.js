@@ -1,22 +1,7 @@
 'use strict';
 
 var api = require('../controllers/apiController');
-var BitslerDice = require('../models/bitsler');
-var NineDice = require('../models/nine');
-var NineDoge = require('../models/ninedoge');
-var YoloDice = require('../models/yolo');
-var PrimeDice = require('../models/prime');
-var StakeDice = require('../models/stake');
-var CryptoDice = require('../models/crypto');
-var Simulator = require('../models/simulator');
-var EpicDice = require('../models/epic');
-var KryptoGames = require('../models/kryptogames');
-var DuckDice = require('../models/duckdice');
-var FreeBitco = require('../models/freebitco');
-var WinDice = require('../models/windice');
-var WolfBet = require('../models/wolfbet');
-var SatoshiDice = require('../models/satoshidice');
-var ParaDice = require('../models/paradice');
+var StakeDice = require('../models/stake'); // Keep this line
 var Factory = require('../models/factory');
 var config = require('config');
 var fs = require('fs');
@@ -81,22 +66,7 @@ function createDice (req, res, next) {
         proxy.password = req.body.proxy_password;
     }
     if(!Factory.check()){
-        Factory.register('Bitsler', new BitslerDice(proxy));
-        Factory.register('999Dice', new NineDice(proxy));
-        Factory.register('YoloDice', new YoloDice(proxy));
-        Factory.register('PrimeDice', new PrimeDice(proxy));
-        Factory.register('Stake', new StakeDice(proxy));
-        Factory.register('Crypto-Games', new CryptoDice(proxy));
-        Factory.register('Simulator', new Simulator(proxy));
-        Factory.register('EpicDice', new EpicDice(proxy));
-        Factory.register('KryptoGames', new KryptoGames(proxy));
-        Factory.register('DuckDice', new DuckDice(proxy));
-        Factory.register('FreeBitco', new FreeBitco(proxy));
-        Factory.register('WinDice', new WinDice(proxy));
-        Factory.register('WolfBet', new WolfBet(proxy));
-        Factory.register('999Doge', new NineDoge(proxy));
-        Factory.register('SatoshiDice', new SatoshiDice(proxy));
-        Factory.register('ParaDice', new ParaDice(proxy));
+        Factory.register('Stake', new StakeDice(proxy)); // Keep this line
     }
     next();
 }
@@ -205,6 +175,4 @@ function isMobile(req) {
     }else{
         return false;
     }
-}
-
-
+                             }
